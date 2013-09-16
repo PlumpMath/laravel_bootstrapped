@@ -1,0 +1,30 @@
+/*
+
+Use like this:
+
+FOR DEVELOPMENT
+
+@font-face {
+    @include font_add(Font Family Name, URL/To/Font/File.ext, Font Weight);
+}
+
+FOR PRODUCTION (file name, without file extension)
+
+@font-face {
+    @include font_add(Font Family Name, URL/To/Font/Files, Font Weight);
+}
+
+*/
+
+$production: false;
+
+@mixin font_add($name, $file, $weight) {
+    font-family: $name;
+    @if $production
+        src: url('#{$file}');
+        font-weight: $weight;
+    @else
+        src: url('#{$file}.eot');
+        src: local('☺'), url('#{$file}.woff') format('woff'), url('#{$file}.ttf') format('truetype'), url('#{$file}.svg') format('svg');
+        font-weight: $weight;
+}

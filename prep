@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+cat app/resources/js/* | uglifyjs -o public/js/main.min.js
+
+sass --no-cache --update app/resources/css/main.scss:public/css/main.css
+
+php artisan serve
