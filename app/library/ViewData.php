@@ -9,10 +9,10 @@ class ViewData
 
 		if (file_exists($absolute)) {
 			$ext = pathinfo($file, PATHINFO_EXTENSION);
-			$asset = $relative.'?v='.self::version($absolute);
+			return $relative.'?v='.self::version($absolute);
 		}
 
-		return $asset;
+		return false;
 	}
 
 	public static function build($files)
@@ -21,7 +21,11 @@ class ViewData
 
 		foreach ($files as $file) {
 			if (preg_match('/(http(s)?:)?\/\//', $file)) {
-				$built[pathinfo($file, PATHINFO_EXTENSION)][] = $built[$file] = $file;
+				if (preg_match('/fonts/', $file)) {
+					$built['css'][] = $built[$file] = $file;
+				} else {
+					$built[pathinfo($file, PATHINFO_EXTENSION)][] = $built[$file] = $file;
+				}
 			} else {
 				$built[pathinfo($file, PATHINFO_EXTENSION)][] = $built[$file] = self::asset($file);
 			}

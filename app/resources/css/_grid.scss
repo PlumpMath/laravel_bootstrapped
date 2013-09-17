@@ -91,7 +91,7 @@ $medium: 720px;
 }
 
 [class*='fit-2']  {
-    @include if-screen-is($average) {
+    @include if-screen-is($medium) {
         width: 50%;
     }
 }
@@ -103,7 +103,7 @@ $medium: 720px;
 }
 
 [class*='fit-4']  {
-    @include if-screen-is($average) {
+    @include if-screen-is($medium) {
         width: 50%;
     }
 

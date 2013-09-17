@@ -13,6 +13,7 @@ View::share('asset', ViewData::build([
 	'//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js',
 	'//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js',
 	'//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.9.3/typeahead.min.js',
+	'http://fonts.googleapis.com/css?family=Varela+Round|Lato:li',
 	'main.css',
 	'main.min.js',
 
