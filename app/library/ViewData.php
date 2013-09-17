@@ -37,6 +37,6 @@ class ViewData
 
 	public static function version($file)
 	{
-		return filemtime($file);
+		return base_convert(filemtime($file), 10, 32);
 	}
 }

@@ -4,21 +4,21 @@ use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-class PrepareCommand extends Command {
+class PrepareCssCommand extends PrepareParentCommand {
 
 	/**
 	 * The console command name.
 	 *
 	 * @var string
 	 */
-	protected $name = 'prepare';
+	protected $name = 'prepare:css';
 
 	/**
 	 * The console command description.
 	 *
 	 * @var string
 	 */
-	protected $description = 'Concatenates and minifies javascript and css.';
+	protected $description = 'Concatenate and minify css.';
 
 	/**
 	 * Create a new command instance.
@@ -30,14 +30,7 @@ class PrepareCommand extends Command {
 		parent::__construct();
 	}
 
-	/**
-	 * Execute the console command.
-	 *
-	 * @return void
-	 */
-	public function fire()
-	{
-		$this->call('prepare:css', []);
-		$this->call('prepare:js',  []);
+	public function shell() {
+		return shell_exec('sass --no-cache --update '.$this->options['source'].'main.scss:'.$this->options['output'].' --style compressed');
 	}
 }

@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-php artisan prepare
-php artisan serve

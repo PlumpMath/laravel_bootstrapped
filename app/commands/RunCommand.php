@@ -4,21 +4,21 @@ use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-class PrepareCommand extends Command {
+class RunCommand extends Command {
 
 	/**
 	 * The console command name.
 	 *
 	 * @var string
 	 */
-	protected $name = 'prepare';
+	protected $name = 'run';
 
 	/**
 	 * The console command description.
 	 *
 	 * @var string
 	 */
-	protected $description = 'Concatenates and minifies javascript and css.';
+	protected $description = 'Prepares and runs server.';
 
 	/**
 	 * Create a new command instance.
@@ -37,7 +37,7 @@ class PrepareCommand extends Command {
 	 */
 	public function fire()
 	{
-		$this->call('prepare:css', []);
-		$this->call('prepare:js',  []);
+		$this->call('prepare', []);
+		$this->call('serve', []);
 	}
 }

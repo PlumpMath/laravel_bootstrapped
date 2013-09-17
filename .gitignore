@@ -5,3 +5,4 @@ composer.lock
 .DS_Store
 /public/css/main.css
 /public/js/main.min.js
+/app/resources/.latest
