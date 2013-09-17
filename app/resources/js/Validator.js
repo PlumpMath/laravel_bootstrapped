@@ -1,3 +1,8 @@
+/**
+ * Javascript Validaton
+ *
+ * Author: William Stein (http://github.com/williamstein92)
+ */
 (function (window) {
 
     'use strict';

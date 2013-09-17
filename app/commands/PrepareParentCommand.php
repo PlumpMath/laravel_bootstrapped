@@ -72,6 +72,10 @@ class PrepareParentCommand extends Command {
 		return $current > $last || $current === false || $last === false;
 	}
 
+	public function echoOverwrite() {
+		$this->info('['.date('D M j H:i:s Y').'] overwrite '.$this->options['output']);
+	}
+
 	/**
 	 * Execute the console command.
 	 *
@@ -84,6 +88,7 @@ class PrepareParentCommand extends Command {
 		$current = $this->getCurrentBuild();
 
 		if ($this->needsRebuild($current, $this->getLastBuild())) {
+			$this->echoOverwrite();
 			$this->shell();
 			$this->updateLast($current);
 		}

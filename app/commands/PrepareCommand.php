@@ -37,7 +37,12 @@ class PrepareCommand extends Command {
 	 */
 	public function fire()
 	{
-		$this->call('prepare:css', []);
-		$this->call('prepare:js',  []);
+		$this->info("Polling for changes. Ctrl^C to exit.\n");
+
+		while(1) {
+			$this->call('prepare:css', []);
+			$this->call('prepare:js',  []);
+			sleep(1);
+		}
 	}
 }
