@@ -5,6 +5,11 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
 class PrepareJsCommand extends PrepareParentCommand {
+	public $defaults = [
+		'source' => 'app/resources/js',
+		'output' => 'public/js/main.min.js',
+		'ext'	 => ['js'],
+	];
 
 	/**
 	 * The console command name.

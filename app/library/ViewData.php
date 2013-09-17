@@ -27,7 +27,9 @@ class ViewData
 					$built[pathinfo($file, PATHINFO_EXTENSION)][] = $built[$file] = $file;
 				}
 			} else {
-				$built[pathinfo($file, PATHINFO_EXTENSION)][] = $built[$file] = self::asset($file);
+				if (file_exists(public_path().DIRECTORY_SEPARATOR.self::path($file))) {
+					$built[pathinfo($file, PATHINFO_EXTENSION)][] = $built[$file] = self::asset($file);
+				}
 			}
 		}
 

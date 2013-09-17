@@ -5,12 +5,6 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
 class PrepareParentCommand extends Command {
-	public $defaults = [
-		'source' => 'app/resources/css',
-		'output' => 'public/css/main.css',
-		'ext'	 => ['css', 'scss', 'sass'],
-	];
-
 	public $options = [];
 
 	/**

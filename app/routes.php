@@ -14,6 +14,7 @@ View::share('asset', ViewData::build([
 	'//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js',
 	'//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.9.3/typeahead.min.js',
 	'http://fonts.googleapis.com/css?family=Varela+Round|Lato:li',
+	'//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css',
 	'main.css',
 	'main.min.js',
 
