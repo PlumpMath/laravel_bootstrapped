@@ -13,4 +13,3 @@
 Artisan::add(new PrepareCommand);
 Artisan::add(new PrepareCssCommand);
 Artisan::add(new PrepareJsCommand);
-Artisan::add(new RunCommand);
