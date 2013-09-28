@@ -1,26 +1,23 @@
 <?php
 
-/**
- * Add any global assets to this array
- *
- * Assets can be called in view through @foreach $asset['css'], $asset['js'], or any file extension,
- * or by the filename itself, $asset['main.css'], etc.
- *
- */
-View::share('asset', ViewData::build([
-
-	'//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js',
-	'//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.4.4/underscore-min.js',
-	'//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.0.0/backbone-min.js',
-	'//cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.9.3/typeahead.min.js',
-	'http://fonts.googleapis.com/css?family=Varela+Round|Lato:li',
-	'//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css',
-	'main.css',
-	'main.min.js',
-
-]));
+View::share('assets', (new AssetCollection)->dev()->build());
 
 Route::get('/', function()
 {
 	return View::make('layouts.main');
+});
+
+Route::test('/test/{test}', function ($test)
+{
+	$sass_path = app_path().'/assets/css/tests/'.$test;
+	shell_exec('sass --no-cache --update '.$sass_path.'.sass:'.$sass_path.'.css');
+	$css = file_get_contents($sass_path.'.css');
+	shell_exec('rm '.$sass_path.'.css');
+
+	$data = [
+		'style' => $css,
+		'content' => View::make('tests.'.$test),
+	];
+
+	return View::make('layouts.test', $data);
 });

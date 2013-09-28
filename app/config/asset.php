@@ -1,20 +1,68 @@
 <?php
 
 return [
-	'production' => [
-		[
-			'to' => 'public/style/style.min.css',
-			'from' => [
-				'app/assets/css/master.sass'
-			]
+
+	'jquery' => [
+
+		'master' => [
+
+			'inline' => false,
+			'src' => '//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js',
+
 		],
-		[
-			'to' => 'public/app/autoload.min.js',
-			'from' => [
-				'app/assets/js/autoload.js'
-			]
+		'dev' => [
+
+			'inline' => false,
+			'src' => 'app/vendor/jquery.js',
+
 		],
+
 	],
-	'development' => [
+	'style' => [
+
+		'master' => [
+
+			'inline' => false,
+			'src' => 'style/main.css',
+
+		],
+		'dev' => [
+
+			'inline' => false,
+			'src' => 'style/main.css',
+
+		],
+
 	],
+	'font-awesome' => [
+
+		'master' => [
+
+			'inline' => false,
+			'src' => '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'
+		],
+		'dev' => [
+
+			'inline' => false,
+			'src' => '//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'
+
+		],
+
+	],
+	'google fonts' => [
+
+		'master' => [
+
+			'inline' => false,
+			'src' => 'http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,700'
+		],
+		'dev' => [
+
+			'inline' => false,
+			'src' => 'http://fonts.googleapis.com/css?family=Open+Sans:300italic,400,700'
+
+		],
+
+	]
+
 ];
